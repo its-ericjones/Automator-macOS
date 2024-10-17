@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>512</string>
+	<key>AMApplicationVersion</key>
+	<string>2.10</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<false/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.1.1</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>appPath</key>
+					<dict>
+						<key>isPathPopUp</key>
+						<true/>
+						<key>variableUUIDsInMenu</key>
+						<array/>
+					</dict>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Open Finder Items.action</string>
+				<key>ActionName</key>
+				<string>Open Finder Items</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>appPath</key>
+					<string>/System/Applications/TextEdit.app</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.OpenFinderItems</string>
+				<key>CFBundleVersion</key>
+				<string>1.1.1</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<true/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryFilesAndFolders</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMOpenFinderItems</string>
+				<key>InputUUID</key>
+				<string>7703A11B-B434-4C1C-AAB0-608ED095B784</string>
+				<key>Keywords</key>
+				<array>
+					<string>Open</string>
+					<string>Document</string>
+					<string>File</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>978B2E1D-18BB-4922-97D2-7F47A634BCD4</string>
+				<key>UUID</key>
+				<string>12407935-8D67-425C-8CD2-131BF5B50C3F</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>appPath</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>309.000000:171.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Open Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>tell application "TextEdit" to activate #tells macOS to switch to TextEdit.apptell application "System Events"	delay 0.5 #delay to let window load		#commands below move cursor to BEGIN line	repeat 3 times		key code 125 # simulates press of down arrow key	end repeat		#repeat script x amount of times as there are calendar events	repeat 4 times		#commands below move cursor down to SUMMARY, deletes the existing line, and types desired event title		repeat 4 times			key code 125 # simulates press of down arrow key		end repeat		delay 0.5 #delay to let prior command execute		key code 124 using {command down} #simulates press of right arrow key with command key		delay 0.5 #delay to let prior command execute		repeat 23 times			key code 123 using {shift down} #simulates press of left arrow key with shift key		end repeat		key code 51 #simulates press of delete key		delay 0.5 #delay to let prior command execute		set newEventTitle to "Work" #creating variable and assigning text		keystroke newEventTitle #printing variable text				#commands below create a new line of LOCATION and types desired address		delay 0.5 #delay to let prior command execute		key code 36 # simulates press of Enter Key		set newLocation to "LOCATION:1301 Burlingame Ave\\nBurlingame\\, CA\\, United States" #creating variable and assigning text		keystroke newLocation #printing variable text				#commands below move cursor to starting point of next event		delay 0.5 #delay to let prior command execute		key code 123 using {command down} #simulates press of right arrow key with command key		delay 0.5 #delay to let prior command execute		repeat 4 times			key code 125 # simulates press of down arrow key		end repeat	end repeat		#command below saves the file	key code 1 using {command down} #simulates press of 's' key with command keyend tell</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>60F99865-FDF8-4BCD-8002-F518611A6BDB</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>5CBE4190-BD0A-4CFE-A359-6D6BA9B90CE7</string>
+				<key>UUID</key>
+				<string>0FB32C98-46F3-4FF6-9181-046E3A5AB57F</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>309.000000:416.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array/>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.1.1</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>appPath</key>
+					<dict>
+						<key>isPathPopUp</key>
+						<true/>
+						<key>variableUUIDsInMenu</key>
+						<array/>
+					</dict>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array/>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Launch Application.action</string>
+				<key>ActionName</key>
+				<string>Launch Application</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>appPath</key>
+					<string>/System/Applications/Calendar.app</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.OpenApplication</string>
+				<key>CFBundleVersion</key>
+				<string>1.1.1</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<true/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMLaunchApplicationAction</string>
+				<key>InputUUID</key>
+				<string>38270700-FB0E-41E8-B74D-9A9AF2756C8D</string>
+				<key>Keywords</key>
+				<array>
+					<string>File</string>
+					<string>Open</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>59BF2C32-45B4-4522-89E0-5C3FF1A075B8</string>
+				<key>UUID</key>
+				<string>001CA0C0-2E43-43A5-B1DA-9E84FA001805</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>/System/Applications/Contacts.app</string>
+						<key>name</key>
+						<string>appPath</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>309.000000:516.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Launch Application.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>tell application "Calendar" to activatetell application "System Events"	tell process "Calendar"		#commands below import ics file into Calendar app		delay 1		click menu "File" of menu bar 1		delay 0.5		repeat 4 times			key code 125 #simulates press of down arrow key 		end repeat		delay 0.5		key code 36 #simulates press of enter key		delay 1		key code 124 #simulates press of right arrow key		delay 0.5		key code 36 #simulates press of enter key		delay 1		key code 36 #simulates press of enter key		delay 1		key code 53 #simulates press of escape key	end tellend tell</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>518B094F-B9F7-4BCC-8E46-9C02FD1296FF</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>F87346D3-3B9A-4CBA-9979-CE22AC3FAAE4</string>
+				<key>UUID</key>
+				<string>5A546680-B9E2-4B03-BEF3-3F27C60B877F</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>309.000000:761.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>0913A754-7C88-4B1B-B5F3-09CFE406BD64</key>
+		<dict>
+			<key>from</key>
+			<string>001CA0C0-2E43-43A5-B1DA-9E84FA001805 - 001CA0C0-2E43-43A5-B1DA-9E84FA001805</string>
+			<key>to</key>
+			<string>5A546680-B9E2-4B03-BEF3-3F27C60B877F - 5A546680-B9E2-4B03-BEF3-3F27C60B877F</string>
+		</dict>
+		<key>125EEEED-29C1-4908-AFE7-82CA388A6C11</key>
+		<dict>
+			<key>from</key>
+			<string>0FB32C98-46F3-4FF6-9181-046E3A5AB57F - 0FB32C98-46F3-4FF6-9181-046E3A5AB57F</string>
+			<key>to</key>
+			<string>001CA0C0-2E43-43A5-B1DA-9E84FA001805 - 001CA0C0-2E43-43A5-B1DA-9E84FA001805</string>
+		</dict>
+		<key>6D645748-B72B-45F9-B8EA-07A24DA61C1B</key>
+		<dict>
+			<key>from</key>
+			<string>12407935-8D67-425C-8CD2-131BF5B50C3F - 12407935-8D67-425C-8CD2-131BF5B50C3F</string>
+			<key>to</key>
+			<string>0FB32C98-46F3-4FF6-9181-046E3A5AB57F - 0FB32C98-46F3-4FF6-9181-046E3A5AB57F</string>
+		</dict>
+	</dict>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>folderActionFolderPath</key>
+		<string>~/Documents/scripts/automator/Calendar-Edit-Import/Work-Schedule</string>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.folderAction</string>
+	</dict>
+</dict>
+</plist>
